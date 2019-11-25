@@ -1,5 +1,5 @@
 package controller;
 
-public class InstructionController implements Controller {
+public class InstructionController extends Controller {
 
 }

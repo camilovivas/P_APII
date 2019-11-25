@@ -1,5 +1,5 @@
 package controller;
 
-public class MenuController implements Controller {
+public class MenuController extends Controller {
 
 }

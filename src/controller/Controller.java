@@ -1,6 +1,6 @@
 package controller;
 
 
-public abstract interface Controller{
+public abstract class Controller{
 
 }

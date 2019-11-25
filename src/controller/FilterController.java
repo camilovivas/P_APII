@@ -1,5 +1,5 @@
 package controller;
 
-public class FilterController implements Controller{
+public class FilterController extends Controller{
 
 }
