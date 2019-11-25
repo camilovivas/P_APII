@@ -2,6 +2,7 @@ package model;
 
 public class ListUser {
 	private User firstUser;
+	private User firstUser2;
 	
 	public ListUser() {
 		
@@ -20,6 +21,14 @@ public class ListUser {
 	}
 	
 	public void addUserAnonimos(UserAnonymous u) {
-		
+		 UserAnonymous next = (UserAnonymous) firstUser2;
+		 if(next == null) {
+			 firstUser2 = u;
+		 }
+		 else {
+			 firstUser2 = u;
+			 u.setNext(next);
+			 next.setPrior(u);
+		 }
 	}
 }
