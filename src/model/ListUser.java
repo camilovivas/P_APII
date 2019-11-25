@@ -7,7 +7,7 @@ public class ListUser {
 		
 	}
 	
-	public void addUser(UserRegistered u) {
+	public void addUserRegistered(UserRegistered u) {
 		 UserRegistered next = (UserRegistered) firstUser;
 		 if(next == null) {
 			 firstUser = u;
@@ -17,5 +17,9 @@ public class ListUser {
 			 u.setNext(next);
 			 next.setPrior(u);
 		 }
+	}
+	
+	public void addUserAnonimos(UserAnonymous u) {
+		
 	}
 }
