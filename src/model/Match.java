@@ -1,6 +1,16 @@
 package model;
 
 public class Match{
-	private Board board;
+//	RELATIONS
+	private Board matchBoard;
 	private User players;
+	
+//	LIST
+	private Match next;
+	private Match prior;
+	
+//	ATTRIBUTES
+	
+	
+	
 }
