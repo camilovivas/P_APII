@@ -1,6 +1,8 @@
 package model;
 
-public class Match{
+import java.io.Serializable;
+
+public class Match implements Serializable{
 //	RELATIONS
 	private Board matchBoard;
 	private User player1;

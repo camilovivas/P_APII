@@ -1,6 +1,8 @@
 package model;
 
-public class ListMatch {
+import java.io.Serializable;
+
+public class ListMatch implements Serializable {
 	private Match firstMatch;
 	
 	public ListMatch() {

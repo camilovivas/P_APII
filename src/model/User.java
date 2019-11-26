@@ -1,7 +1,10 @@
 package model;
 
 import java.util.ArrayList;
-
+/**hola
+ * @author Camiilo Mañunga
+ *
+ */
 public class User {
 	
 //	LISTA DOBLE
