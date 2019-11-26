@@ -3,7 +3,8 @@ package model;
 public class Match{
 //	RELATIONS
 	private Board matchBoard;
-	private User players;
+	private User player1;
+	private User player2;
 	
 //	LIST
 	private Match next;
@@ -11,6 +12,13 @@ public class Match{
 	
 //	ATTRIBUTES
 	
+	public Match() {
+		
+	}
+	
+	public void calculateScoreByPlayer(User s) {
+		
+	}
 	
 	
 }

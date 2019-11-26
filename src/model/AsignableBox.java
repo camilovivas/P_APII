@@ -50,6 +50,8 @@ public class AsignableBox extends Box{
 
 	public void setShape(Shape shape) {
 		this.shape = shape;
+		conquered = true;
+		this.score = this.score+shape.getScore();
 	}
 	
 	
