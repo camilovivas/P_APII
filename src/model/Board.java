@@ -37,5 +37,6 @@ public class Board {
 	
 	public void conquerBox(int i, int j, Shape shape) {
 		((AsignableBox) box[i][j]).setShape(shape);
+		 
 	}
 }

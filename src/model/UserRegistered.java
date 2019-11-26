@@ -4,7 +4,6 @@ public class UserRegistered extends User {
 	
 	private String firstName;
 	private String lastName;
-	private int rankingUser;
 	private Score historyScore;
 	
 	public UserRegistered(String firstName, String lastName ) {
@@ -28,14 +27,6 @@ public class UserRegistered extends User {
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
-	}
-
-	public int getRankingUser() {
-		return rankingUser;
-	}
-
-	public void setRankingUser(int rankingUser) {
-		this.rankingUser = rankingUser;
 	}
 
 	public Score getHistoryScore() {
