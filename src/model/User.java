@@ -1,11 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-/**hola
- * @author Camiilo Mañunga
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
  */
-public class User {
+public class User implements Serializable{
 	
 //	LISTA DOBLE
 	private User prior;

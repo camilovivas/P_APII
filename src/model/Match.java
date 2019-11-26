@@ -1,7 +1,10 @@
 package model;
 
 import java.io.Serializable;
-
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
 public class Match implements Serializable{
 //	RELATIONS
 	private Board matchBoard;

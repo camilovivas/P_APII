@@ -9,7 +9,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLBoundOperation.ANONYMOUS;
-
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
 public class Geometrico {
 //	RELATIONS
 	private TreeRanking treeRanking;
