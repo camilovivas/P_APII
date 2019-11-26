@@ -1,12 +1,83 @@
 package model;
 
-public class RankingBestUser {
+public class RankingBestUser implements Comparable<RankingBestUser>{
 	
 	private RankingBestUser right;
 	private RankingBestUser left;
+	private User player;
 	
-	public RankingBestUser() {
-		
+	public RankingBestUser(User player) {
+		this.player=player;
+	}
+
+	public RankingBestUser getRight() {
+		return right;
+	}
+
+	public void setRight(RankingBestUser right) {
+		this.right = right;
+	}
+
+	public RankingBestUser getLeft() {
+		return left;
+	}
+
+	public void setLeft(RankingBestUser left) {
+		this.left = left;
 	}
 	
+	
+	public User getPlayer() {
+		return player;
+	}
+
+	public void setPlayer(User player) {
+		this.player = player;
+	}
+
+	public String inOrden() {
+		String msj = "";
+		if(left != null) {
+			msj += left.inOrden();
+		}
+		msj += this.getPlayer().getRankingUser();
+		if(right != null) {
+			msj += right.inOrden();
+		}
+		return msj;
+	}
+	public void addRankingBestUser(RankingBestUser added) {
+		if(compareTo(added) == -1) {
+			if(left == null) {
+				setLeft(added);
+			}else {
+				left.addRankingBestUser(added);
+			}
+		}else if(compareTo(added) == 1) {
+			if(right==null) {
+				setRight(added);
+			}else {
+				right.addRankingBestUser(added);
+			}
+		}else {
+			if(left == null) {
+				setLeft(added);
+			}else {
+				left.addRankingBestUser(added);
+			}
+		}
+	}
+	@Override
+	public int compareTo(RankingBestUser o) {
+		int variable = 0;
+		if(o.getPlayer().getRankingUser() < this.getPlayer().getRankingUser()) {
+			variable = -1;
+		}else if(o.getPlayer().getRankingUser() > this.getPlayer().getRankingUser()) {
+			variable = 1;
+		}
+		return variable;
+	}
+	
+	
+
 }
