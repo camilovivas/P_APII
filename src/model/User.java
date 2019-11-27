@@ -75,4 +75,17 @@ public class User implements Serializable{
 	}
 	
 	
+//	ordenamiento burbuja
+	public void ordenarBoxByScore() {
+		for(int i = boxes.size(); i>0; i--) {
+			for (int j = 0; j < i-1; j++) {
+				if(((AsignableBox) boxes.get(j)).getScore()>((AsignableBox) boxes.get(j+1)).getScore()) {
+					Box tem = boxes.get(j);
+					boxes.set(j, boxes.get(j+1));
+					boxes.set(j+1, tem);
+				}
+			}
+		}
+	}
+	
 }
