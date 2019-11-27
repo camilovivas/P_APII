@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
+
 public class Board {
 	public static int COLUMNA = 8;
 	public static int FILA = 8;

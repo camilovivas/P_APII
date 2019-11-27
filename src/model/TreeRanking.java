@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
+
 public class TreeRanking {
 	
 	private RankingBestUser rootRanking;
@@ -27,6 +32,20 @@ public class TreeRanking {
 		}else {
 			rootRanking.addRankingBestUser(add);
 		}
+	}
+	
+	public boolean clasification(User cla) {
+		boolean menor = false;
+		if(rootRanking != null) {
+			if(rootRanking.getPlayer().getRankingUser()<cla.getRankingUser()) {
+				menor = true;
+			}else{
+				menor = rootRanking.clasificationRanking(cla);
+			}
+		}else {
+			menor=true;
+		}
+		return menor;
 	}
 	
 }

@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
+
 public class RankingBestUser implements Comparable<RankingBestUser>{
 	
 	private RankingBestUser right;
@@ -40,11 +45,28 @@ public class RankingBestUser implements Comparable<RankingBestUser>{
 		if(left != null) {
 			msj += left.inOrden();
 		}
-		msj += this.getPlayer().getRankingUser();
+		msj += " "+this.getPlayer().getRankingUser();
 		if(right != null) {
 			msj += right.inOrden();
 		}
 		return msj;
+	}
+	public boolean clasificationRanking(User clasi) {
+		boolean menor = false;
+		if(left != null) {
+			if(left.getPlayer().getRankingUser()<clasi.getRankingUser()) {
+				menor = true;
+			}else {
+				menor = left.clasificationRanking(clasi);
+			}
+		}if(right != null) {
+			if(right.getPlayer().getRankingUser()<clasi.getRankingUser()) {
+				menor = true;
+			}else {
+				menor = right.clasificationRanking(clasi);
+			}
+		}
+		return menor;
 	}
 	public void addRankingBestUser(RankingBestUser added) {
 		if(compareTo(added) == -1) {

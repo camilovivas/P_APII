@@ -1,6 +1,12 @@
 package model;
 
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
+
 public class AsignableBox extends Box{
+	
 	private boolean conquered;
 	private int score;
 	private Shape shape;

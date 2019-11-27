@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
+ *
+ */
+
 public class Shape {
 	
 	private Shape next;
