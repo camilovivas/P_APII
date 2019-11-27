@@ -22,6 +22,7 @@ public class User implements Serializable{
 	
 	public User() {
 		boxes = new ArrayList<>();
+		turn = true;
 
 	}
 
