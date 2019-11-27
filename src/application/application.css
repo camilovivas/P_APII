@@ -1,1 +1,98 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+@font-face {
+    src: url("../../data/font/DimboRegular.ttf");
+}
+
+
+.mainPane{
+    -fx-background-color:rgba(255.0,0.0,0.0,0.2);
+    -fx-background-image: url("../../data/image/background.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+
+.button{
+	-fx-focus-color: transparent;
+	-fx-font-family: "Dimbo Regular";
+    -fx-font-size: 20;
+    -fx-cursor: pointer;
+   -fx-background-color: transparent;
+   -fx-cursor: hand;
+}
+
+
+.text-field {
+	-fx-focus-color: transparent;
+	-fx-font-family: "Dimbo Regular";
+	 -fx-background-color:transparent;
+	 -fx-border-style: solid;
+    -fx-border-width: 2;
+    -fx-border-color: "#FDBC0F";
+    -fx-font-size: 25;
+    -fx-text-fill: "#FFFFFF"; 
+    -fx-border-radius: 10px;
+}
+
+
+.combo-box-base {
+	-fx-focus-color: transparent;
+	-fx-font-family: "Dimbo Regular";
+	 -fx-background-color:transparent;
+	 -fx-border-style: solid;
+    -fx-border-width: 2;
+    -fx-border-color: "#FDBC0F";
+    -fx-font-size: 25;
+    -fx-text-fill: "#FFFFFF" !important; 
+    -fx-border-radius: 10px;
+}
+
+
+.menuPane{
+	fx-background-color:rgba(255.0,0.0,0.0,0.2);
+    -fx-background-image: url("../../data/image/menu.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+   
+}
+
+.btnYellow{
+	  -fx-background-image: url("../../data/image/btn-yellow.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 124.0px, 47.0px;
+      -fx-text-fill: "#AB002C"; 
+    
+}
+
+
+.btnYellow:hover{
+	  -fx-background-image: url("../../data/image/btn-yellow-hover.png");
+}
+
+
+.btnGreen{
+	  -fx-background-image: url("../../data/image/btn-green.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 124.0px, 47.0px;
+    -fx-text-fill: "#2E5111";
+
+}
+
+.btnBlue{
+	-fx-background-image: url("../../data/image/btn-blue.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 124.0px, 47.0px;
+    -fx-text-fill: "#432D63";
+}
+
+.backButton{
+	-fx-background-image: url("../../data/image/back_button.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 40px, 40px;
+    -fx-text-fill: "#2E5111";
+}
+
