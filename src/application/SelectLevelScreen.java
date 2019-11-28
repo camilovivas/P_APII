@@ -11,22 +11,13 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SelectLevelScreen extends Screen{
-	private GameScreen gs;
-	private MenuController menuController;
-	private VBox root;
-	
 	private VBox menuPane;
-	
 	private Button btnEasy,btnInter,btnPro;
 	private Image title;
 	private ImageView  wrapperTitle;
-	
 	private SelectLevelController selectLevelController;
-	
 	public SelectLevelScreen(Stage stage) {
-		root = new VBox();
-		root.setPrefSize(800,497);
-		root.getStyleClass().add("mainPane");
+		
 		
 		title = new Image("file:../../data/image/titulo.png");
 		wrapperTitle = new ImageView(title);
@@ -63,6 +54,7 @@ public class SelectLevelScreen extends Screen{
 	}
 	
 	private void drawBody() {
+		//---------------------------------
 		menuPane.getChildren().add(btnEasy);
 		menuPane.getChildren().add(btnInter);
 		menuPane.getChildren().add(btnPro);
@@ -71,15 +63,9 @@ public class SelectLevelScreen extends Screen{
 		root.getChildren().add(wrapperTitle);
 		root.getChildren().add(menuPane);
 		root.setAlignment(Pos.CENTER);
+		//---------------------------------
 	}
 
-	public Pane getRoot() {
-		return root;
-	}
-
-	public void setRoot(VBox root) {
-		this.root = root;
-	}
 	
 	public void selectLevelGame() {
 		btnEasy.setOnAction(e -> {
@@ -98,5 +84,11 @@ public class SelectLevelScreen extends Screen{
 			selectLevelController.setLevel(3);
 			selectLevelController.goScreens("registerUser");
 		});
+	}
+
+	@Override
+	public void drawHeader() {
+		// TODO Auto-generated method stub
+		
 	}
 }

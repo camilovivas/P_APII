@@ -14,9 +14,6 @@ public class UserRegisterController extends Controller {
 		model = new Geometrico();
 	}
 	
-	
-	public void setLevel(int level) {
-		model.setInitMatch(level);
-	}
+
 
 }

@@ -19,8 +19,6 @@ import javafx.stage.Stage;
 
 public class FilterScreen extends Screen {
 	private InstructionScreen isc;
-	private GameScreen gs;
-	private VBox root;
 	private Pane wrapperMain;
 	private VBox header;
 	private HBox wrapperTitles,wrapperMenuSearch,sideATitles,sideAMenu;
@@ -33,11 +31,6 @@ public class FilterScreen extends Screen {
 
 	
 	public FilterScreen(Stage stage) {
-		//-------------------------------
-		root = new VBox();
-		root.setPrefSize(800,497);
-		root.getStyleClass().add("mainPane");
-		//-------------------------------
 		wrapperTitles = new HBox(50);
 		wrapperTitles.setAlignment(Pos.CENTER);
 		
@@ -93,10 +86,12 @@ public class FilterScreen extends Screen {
 	}
 	
 	private void drawBody() {
+		root.setAlignment(Pos.TOP_CENTER);
 		drawHeader();
 		drawMenu();
 		drawMain();
 		goToMenu();
+		
 	}
 	
 	private void drawMain() {
@@ -107,9 +102,8 @@ public class FilterScreen extends Screen {
 		wrapperMenuSearch.getChildren().add(btnSearch);
 	}
 	
-	private void drawHeader() {
+	public void drawHeader() {
 		root.getChildren().add(header);
-		root.setAlignment(Pos.TOP_CENTER);
 	}
 	
 	private void drawMenu() {

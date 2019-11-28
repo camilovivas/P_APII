@@ -1,7 +1,5 @@
 package application;
 
-import controller.MenuController;
-import controller.SelectLevelController;
 import controller.UserRegisterController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -16,7 +14,7 @@ import javafx.stage.Stage;
 
 public class RegisterUsersScreen extends Screen {
 
-	private VBox root, wrapperInputsA, wrapperInputsB;
+	private VBox wrapperInputsA, wrapperInputsB;
 	private HBox wrapperInputs,wrapperTitles,sideATitles;
 	private TextField namePlayerOne, namePlayeTwo;
 	private Label labelPlayerOne, labelPlayerTwo;
@@ -26,11 +24,6 @@ public class RegisterUsersScreen extends Screen {
 	private UserRegisterController userRegisterController;
 
 	public RegisterUsersScreen(Stage stage) {
-		root = new VBox();
-		root.setPrefSize(800, 497);
-		root.getStyleClass().add("mainPane");
-		root.setAlignment(Pos.CENTER);
-		
 		btnBack = new Button();
 		btnBack.setPrefSize(40, 40);
 		btnBack.getStyleClass().add("backButton");
@@ -39,8 +32,8 @@ public class RegisterUsersScreen extends Screen {
 		sideATitles.setAlignment(Pos.TOP_CENTER);
 		sideATitles.setTranslateX(-150);
 		
-		wrapperTitles = new HBox(40);
-		wrapperTitles.setAlignment(Pos.TOP_CENTER);
+		wrapperTitles = new HBox(50);
+		wrapperTitles.setAlignment(Pos.CENTER);
 		wrapperTitles.setTranslateX(-50);
 		wrapperTitles.setTranslateY(-120);
 		
@@ -52,7 +45,6 @@ public class RegisterUsersScreen extends Screen {
 		title = new Image("file:../../data/image/titulo.png",134, 45,false,false);
 		wrapperTitleH = new ImageView(title);
 		wrapperTitleH.setTranslateX(240);
-		
 		
 		btnRegister = new Button("Continaur");
 		btnRegister.setPrefSize(124,47);
@@ -76,17 +68,18 @@ public class RegisterUsersScreen extends Screen {
 		
 		userRegisterController = new UserRegisterController(stage);
 		
-		drawHeader();
 		draw();
-		goToMenu();
 
 	}
 
 	private void draw() {
+		drawHeader();
 		drawBody();
+		goToMenu();
+		goToGame();
 	}
 	
-	private void drawHeader() {
+	public void drawHeader() {
 		sideATitles.getChildren().add(btnBack);
 		sideATitles.getChildren().add(wrapperTitleUser);
 		sideATitles.getStyleClass().add("sideATitles");
@@ -111,18 +104,18 @@ public class RegisterUsersScreen extends Screen {
 		root.getChildren().add(btnRegister);
 	}
 	
-	public void goToMenu() {
+	private void goToMenu() {
 		btnBack.setOnAction(e -> {
 			userRegisterController.goScreens("menu");
 		});	
 	}
-
-	public Pane getRoot() {
-		return root;
+	
+	
+	private void goToGame() {
+		btnRegister.setOnAction(e -> {
+			userRegisterController.goScreens("game");
+		});	
 	}
 
-	public void setRoot(VBox root) {
-		this.root = root;
-	}
 
 }

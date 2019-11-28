@@ -78,4 +78,11 @@ public class Geometrico {
 	public void setInitMatch(int level) {
 		System.out.println("Level" + " "+level);
 	}
+
+	//-----------------------------------
+	//-----------------------------------
+	//TODO HACER MÉTODO PARA RETORNAR LEVEL DEL JUEGO
+	public int getLeveMatch() {
+		return 3;
+	}
 }

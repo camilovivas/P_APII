@@ -1,6 +1,7 @@
 package controller;
 
 import application.FilterScreen;
+import application.GameScreen;
 import application.MenuScreen;
 import application.RegisterUsersScreen;
 import application.SelectLevelScreen;
@@ -18,7 +19,6 @@ public abstract class Controller{
 	public Controller(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 	}
-	
 	
 	
 	public  void goScreens(String screen) {
@@ -40,6 +40,11 @@ public abstract class Controller{
 		case "registerUser":
 			RegisterUsersScreen registerUserScreen = new RegisterUsersScreen(primaryStage);
 			scene = new Scene(registerUserScreen.getRoot());
+		break;
+		
+		case "game":
+			GameScreen gameUserScreen = new GameScreen(primaryStage);
+			scene = new Scene(gameUserScreen.getRoot());
 		break;
 
 

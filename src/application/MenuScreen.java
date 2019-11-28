@@ -12,7 +12,6 @@ import javafx.stage.Stage;
 public class MenuScreen extends Screen{
 	private GameScreen gs;
 	private MenuController menuController;
-	private VBox root;
 	
 	private VBox menuPane;
 	
@@ -21,10 +20,6 @@ public class MenuScreen extends Screen{
 	private ImageView  wrapperTitle;
 	
 	public MenuScreen(Stage stage) {
-		root = new VBox();
-		root.setPrefSize(800,497);
-		root.getStyleClass().add("mainPane");
-		
 		title = new Image("file:../../data/image/titulo.png");
 		wrapperTitle = new ImageView(title);
 		
@@ -98,6 +93,12 @@ public class MenuScreen extends Screen{
 		btnRanking.setOnAction(e -> {
 			menuController.goScreens("ranking");
 		});
+	}
+
+	@Override
+	public void drawHeader() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
