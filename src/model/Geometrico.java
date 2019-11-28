@@ -2,13 +2,11 @@ package model;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLBoundOperation.ANONYMOUS;
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
@@ -36,6 +34,7 @@ public class Geometrico {
 	}
 	
 	public void setInitMatch(int level) {
+		System.out.println("R");
 		this.level = level;
 	}
 //	agregar _________________________________________________________________________________________
@@ -113,7 +112,16 @@ public class Geometrico {
 		return s1;
 	}
 	
-	//EXCEPTION: SI ES NULL ES POR QUE NO EXISTE UNA PARTIDA EN ESA FECHA	
+//	EXEPTION: SI NO SE ENCONTRO ES POR QUE NO EXISTE
+	public UserRegistered foundUser(String name) {
+		UserRegistered s1 = listUser.search(name);
+		if(s1 == null) {
+//			TODO
+		}
+		return s1;
+	}
+	
+	//EXCEPTION: SI ES NULL ES POR QUE NO EXISTE UNA PARTIDA EN ESA FECHA, OTRA: ESCRIBIO MAL LA FECHA
 	public Match searchMatch(String date) {
 		Match retorno = listMatch.search(date);
 		if(retorno == null) {

@@ -40,7 +40,7 @@ public class UserRegisterController extends Controller {
 		else {
 			user2= model.searchUser(name);
 		}
-		model.setPlayer1(user1);
+		model.setPlayer2(user2);
 		model.initMatch();
 	}
 

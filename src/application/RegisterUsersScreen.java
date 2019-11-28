@@ -68,8 +68,6 @@ public class RegisterUsersScreen extends Screen {
 		
 		userRegisterController = new UserRegisterController(stage);
 		btnRegister.setOnAction(e->{
-			userRegisterController.search1(namePlayerOne.getText());
-			userRegisterController.search2(namePlayeTwo.getText());
 		});
 		
 		draw();
@@ -117,6 +115,8 @@ public class RegisterUsersScreen extends Screen {
 	
 	private void goToGame() {
 		btnRegister.setOnAction(e -> {
+			userRegisterController.search1(namePlayerOne.getText());
+			userRegisterController.search2(namePlayeTwo.getText());
 			userRegisterController.goScreens("game");
 		});	
 	}
