@@ -129,6 +129,8 @@ public class Match implements Serializable{
 		
 	}
 	
+	
+	
 	public String toString() {
 		String ret = "Score player 1:"+player1.getRankingUser()+"  --  Score player 2:"+player2.getRankingUser()+"\n";
 		return ret;

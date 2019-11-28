@@ -18,6 +18,7 @@ public class FilterController extends Controller {
 		result = "";
 	}
 
+//	me trae los resultados pero no se donde ponerlo en la Screen
 	public void setOption(String option, String text) {
 		this.option = option;
 		if(option.compareTo("Usuarios")==0) {
