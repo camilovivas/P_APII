@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import controller.GameController;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
@@ -7,6 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class GameScreen extends Screen{
@@ -42,6 +46,9 @@ public class GameScreen extends Screen{
 		draw(); 
 		
 	}
+	
+
+	
 	
 	
 	private void draw() {

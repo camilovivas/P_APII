@@ -1,5 +1,7 @@
 package application;
 
+import java.io.File;
+
 import controller.MenuController;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -7,9 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-public class MenuScreen extends Screen{
+public class MenuScreen extends Screen implements Runnable{
 	private GameScreen gs;
 	private MenuController menuController;
 	
@@ -98,6 +102,21 @@ public class MenuScreen extends Screen{
 	@Override
 	public void drawHeader() {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	private void sound() {
+		String musicFile = "data/sound/kahoot.mp3";     // For example
+		Media sound = new Media(new File(musicFile).toURI().toString());
+		MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+		mediaPlayer.play();
+	}
+	
+
+	@Override
+	public void run() {
+		sound();
 		
 	}
 	
