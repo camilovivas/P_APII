@@ -32,6 +32,23 @@ public class UserRegistered extends User {
 		this.historyScore = historyScore;
 	}
 	
+//		recursivo
+	public int bestScore() {
+		String msj = "";
+		if(historyScore != null) {
+			msj += historyScore.inOrden();
+		}
+		String[] s = msj.split(",");
+		int best = Integer.parseInt(s[s.length]);
+		return best;
+	}
+	
+	public String toString() {
+		String msj = firstName+"su mejor puntaje"+bestScore();
+		return msj;
+		
+	}
+	
 	
 
 }

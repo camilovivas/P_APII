@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
  *
  */
 public class Geometrico {
+	private static Geometrico geo;
 //	RELATIONS
 	private TreeRanking treeRanking;
 	private ListUser listUser;
@@ -22,9 +23,18 @@ public class Geometrico {
 	private Match match;
 	
 	
-	public Geometrico() {
-		listUser = new ListUser();
-//		ReadSerializedUsers();
+	private Geometrico() {
+//		listUser = new ListUser();
+//		listMatch = new ListMatch();
+		ReadSerializedUsers();
+		ReadSerializedMatch();
+	}
+	
+	public static Geometrico getSingletonInstance() {
+		if(geo == null) {
+			geo = new Geometrico();
+		}
+		return geo;
 	}
 //	get and set____________________
 	public void setPlayer1(User player1) {
@@ -115,17 +125,21 @@ public class Geometrico {
 	}
 	
 //	EXEPTION: SI NO SE ENCONTRO ES POR QUE NO EXISTE
-	public UserRegistered foundUser(String name) {
+	public String foundUser(String name) {
 		UserRegistered s1 = listUser.search(name);
+		String msj = "";
 		if(s1 == null) {
 //			TODO
 		}
-		return s1;
+		else {
+			msj += s1.toString();
+		}
+		return msj;
 	}
 	
 	//EXCEPTION: SI ES NULL ES POR QUE NO EXISTE UNA PARTIDA EN ESA FECHA, OTRA: ESCRIBIO MAL LA FECHA
-	public Match searchMatch(String date) {
-		Match retorno = listMatch.search(date);
+	public String searchMatch(String date) {
+		String retorno = listMatch.printFound(date);
 		if(retorno == null) {
 			//TODO
 		}
@@ -136,6 +150,7 @@ public class Geometrico {
 		Match mt= new Match(player1, player2, level);
 		listMatch.addMatch(mt);
 		System.out.println("bien");
+		this.match = mt;
 		serializedMatch();
 	}
 

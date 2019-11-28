@@ -11,7 +11,7 @@ public class SelectLevelController extends Controller {
 	
 	public SelectLevelController(Stage primaryStage) {
 		super(primaryStage);
-		model = new Geometrico();
+		model = Geometrico.getSingletonInstance();
 	}
 	
 	

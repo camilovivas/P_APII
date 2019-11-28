@@ -15,7 +15,7 @@ public class UserRegisterController extends Controller {
 	
 	public UserRegisterController(Stage primaryStage) {
 		super(primaryStage);
-		model = new Geometrico();
+		model = Geometrico.getSingletonInstance();
 	}
 	
 	
