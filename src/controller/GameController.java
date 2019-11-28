@@ -9,7 +9,7 @@ public class GameController extends Controller {
 	
 	public GameController(Stage primaryStage) {
 		super(primaryStage);
-		model = new Geometrico();
+		model = Geometrico.getSingletonInstance();
 	}
 	
 	public int getSizeArrayBox() {

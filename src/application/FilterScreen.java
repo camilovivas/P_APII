@@ -61,7 +61,7 @@ public class FilterScreen extends Screen {
 		inputSearch = new TextField();
 		inputSearch.setPrefWidth(380);
 		
-		listView = new ComboBox();
+		listView = new ComboBox<String>();
 		listView.setPrefWidth(200);
 		listView.getItems().addAll(
 	            "Usuarios",
@@ -91,6 +91,7 @@ public class FilterScreen extends Screen {
 		drawMenu();
 		drawMain();
 		goToMenu();
+		search();
 		
 	}
 	
@@ -120,6 +121,13 @@ public class FilterScreen extends Screen {
 			System.out.println("Entro");
 			filterController.goScreens("menu");
 		});	
+	}
+	
+	public void search() {
+		btnSearch.setOnAction(e->{
+			filterController.setOption((String) listView.getValue(), inputSearch.getText());
+			
+		});
 	}
 
 	public Pane getRoot() {

@@ -7,13 +7,13 @@ import org.junit.jupiter.api.Test;
 class ListUserTest {
 
 	@Test
-	void test() {
+	void addTest() {
 		ListUser lu= new ListUser();
-		UserRegistered s1 = new UserRegistered("c", "v");
-		UserRegistered s2 = new UserRegistered("a", "v");
-		UserRegistered s3 = new UserRegistered("b", "v");
-		UserRegistered s4 = new UserRegistered("e", "v");
-		UserRegistered s5 = new UserRegistered("d", "v");
+		UserRegistered s1 = new UserRegistered("c");
+		UserRegistered s2 = new UserRegistered("a");
+		UserRegistered s3 = new UserRegistered("b");
+		UserRegistered s4 = new UserRegistered("e");
+		UserRegistered s5 = new UserRegistered("d");
 		lu.addUserRegistered(s1);
 		lu.addUserRegistered(s2);
 		lu.addUserRegistered(s3);
@@ -28,5 +28,22 @@ class ListUserTest {
 		}
 		assertEquals("abcde", actual);
 	}
-
+	
+	@Test
+	void SearchUser() {
+		ListUser lu= new ListUser();
+		UserRegistered s1 = new UserRegistered("c");
+		UserRegistered s2 = new UserRegistered("a");
+		UserRegistered s3 = new UserRegistered("b");
+		UserRegistered s4 = new UserRegistered("e");
+		UserRegistered s5 = new UserRegistered("d");
+		lu.addUserRegistered(s1);
+		lu.addUserRegistered(s2);
+		lu.addUserRegistered(s3);
+		lu.addUserRegistered(s4);
+		lu.addUserRegistered(s5);
+		lu.organizeByName();
+		UserRegistered actual = lu.search("a");
+		assertEquals("a", actual.getFirstName());
+	}
 }

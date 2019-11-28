@@ -8,10 +8,17 @@ package model;
 public class Shape {
 	
 	private Shape next;
+	private Shape prior;
+	
+	public Shape getPrior() {
+		return prior;
+	}
+	public void setPrior(Shape prior) {
+		this.prior = prior;
+	}
 	private int score;
 	public Shape() {
-		super();
-		// TODO Auto-generated constructor stub
+
 	}
 	public Shape getNext() {
 		return next;
@@ -25,6 +32,15 @@ public class Shape {
 	public void setScore(int score) {
 		this.score = score;
 	}
-	
+	public void shapeAdd(Shape s) {
+		boolean added = false;
+		if(next == null && !added) {
+			setNext(s);
+			s.setPrior(this);
+			added = true;
+		}else {
+			next.shapeAdd(s);
+		}
+	}
 	
 }

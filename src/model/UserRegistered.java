@@ -8,13 +8,11 @@ package model;
 public class UserRegistered extends User {
 	
 	private String firstName;
-	private String lastName;
 	private Score historyScore;
 	
-	public UserRegistered(String firstName, String lastName ) {
+	public UserRegistered(String firstName) {
 		super();
 		this.firstName = firstName;
-		this.lastName = lastName;
 
 	}
 
@@ -26,20 +24,29 @@ public class UserRegistered extends User {
 		this.firstName = firstName;
 	}
 
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 	public Score getHistoryScore() {
 		return historyScore;
 	}
 
 	public void setHistoryScore(Score historyScore) {
 		this.historyScore = historyScore;
+	}
+	
+//		recursivo
+	public int bestScore() {
+		String msj = "";
+		if(historyScore != null) {
+			msj += historyScore.inOrden();
+		}
+		String[] s = msj.split(",");
+		int best = Integer.parseInt(s[s.length]);
+		return best;
+	}
+	
+	public String toString() {
+		String msj = firstName+"su mejor puntaje"+bestScore();
+		return msj;
+		
 	}
 	
 	

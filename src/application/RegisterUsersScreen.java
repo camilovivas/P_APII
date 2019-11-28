@@ -46,13 +46,13 @@ public class RegisterUsersScreen extends Screen {
 		wrapperTitleH = new ImageView(title);
 		wrapperTitleH.setTranslateX(240);
 		
-		btnRegister = new Button("Continaur");
+		btnRegister = new Button("Continuar");
 		btnRegister.setPrefSize(124,47);
 		btnRegister.getStyleClass().add("btnYellow");
 		btnRegister.setTranslateY(30);
 		
-		labelPlayerOne = new Label("Juagdor 1");
-		labelPlayerTwo = new Label("Juagdor 2");
+		labelPlayerOne = new Label("Jugador 1");
+		labelPlayerTwo = new Label("Jugador 2");
 
 		namePlayerOne = new TextField();
 		namePlayerOne.setPrefWidth(250);
@@ -67,6 +67,8 @@ public class RegisterUsersScreen extends Screen {
 		wrapperInputs.setAlignment(Pos.CENTER);
 		
 		userRegisterController = new UserRegisterController(stage);
+		btnRegister.setOnAction(e->{
+		});
 		
 		draw();
 
@@ -113,6 +115,8 @@ public class RegisterUsersScreen extends Screen {
 	
 	private void goToGame() {
 		btnRegister.setOnAction(e -> {
+			userRegisterController.search1(namePlayerOne.getText());
+			userRegisterController.search2(namePlayeTwo.getText());
 			userRegisterController.goScreens("game");
 		});	
 	}

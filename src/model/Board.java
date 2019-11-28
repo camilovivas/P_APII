@@ -6,19 +6,21 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
  */
 
-public class Board {
+public class Board implements Serializable{
 	public static int COLUMNA_LEVEL_1 = 4;
 	public static int FILA_LEVEL_1 = 4;
 	public static int COLUMNA_LEVEL_2 = 5;
 	public static int FILA_LEVEL_2 = 5;
 	public static int COLUMNA_LEVEL_3 = 6;
 	public static int FILA_LEVEL_3 = 6;
+	
 	private Box[][] box;
 	private int level;
 	
@@ -71,6 +73,12 @@ public class Board {
 		 
 	}
 	
+	public void generateBoxRandom() {
+//		TODO
+	}
+	
+	
+//	archivos TXT ______________________________________________________________________________________
 	public  void chargeTXT() {
 		try {
 			String txt = "";

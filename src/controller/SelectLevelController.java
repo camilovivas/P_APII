@@ -11,12 +11,12 @@ public class SelectLevelController extends Controller {
 	
 	public SelectLevelController(Stage primaryStage) {
 		super(primaryStage);
-		model = new Geometrico();
+		model = Geometrico.getSingletonInstance();
 	}
 	
 	
 	public void setLevel(int level) {
-		model.setInitMatch(level);
+		model.setLevel(level);
 	}
 
 }

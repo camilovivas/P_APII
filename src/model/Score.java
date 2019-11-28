@@ -14,4 +14,16 @@ public class Score {
 		this.score = score;
 	}
 	
+	public String inOrden() {
+		String msj = "";
+		if(left != null) {
+			msj += left.inOrden();
+		}
+		msj += this.score+",";
+		if(right != null) {
+			msj += right.inOrden();
+		}
+		return msj;
+	}
+	
 }

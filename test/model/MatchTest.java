@@ -10,7 +10,7 @@ class MatchTest {
 	public void conquerBoxtest() {
 		UserAnonymous s1 = new UserAnonymous();
 		s1.setTurn(true);
-		UserRegistered s2 = new UserRegistered("andres", "v");
+		UserRegistered s2 = new UserRegistered("andres");
 		Shape sh = new Shape();
 		sh.setScore(10);
 		Match m = new Match(s1, s2,1);
@@ -21,9 +21,9 @@ class MatchTest {
 	
 	@Test
 	public void conquerBoxtest2() {
-		UserRegistered s1 = new UserRegistered("camilo", "v");
+		UserRegistered s1 = new UserRegistered("camilo");
 		s1.setTurn(true);
-		UserRegistered s2 = new UserRegistered("andres", "v");
+		UserRegistered s2 = new UserRegistered("andres");
 		Shape sh = new Shape();
 		sh.setScore(10);
 		Match m = new Match(s1, s2,1);
@@ -34,9 +34,9 @@ class MatchTest {
 	
 	@Test
 	void lastMatch() {
-		UserRegistered s1 = new UserRegistered("camilo", "v");
-		UserRegistered s2 = new UserRegistered("andres", "v");
-		UserRegistered im = new UserRegistered("funciona", "v");
+		UserRegistered s1 = new UserRegistered("camilo");
+		UserRegistered s2 = new UserRegistered("andres");
+		UserRegistered im = new UserRegistered("funciona");
 		im.setRankingUser(30);
 		Match m1 = new Match(s1, s2,1);
 		Match m2 = new Match(s1, s2,1);

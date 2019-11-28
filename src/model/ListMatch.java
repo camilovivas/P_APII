@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
@@ -62,37 +63,11 @@ public class ListMatch implements Serializable {
 		return retorno;
 	}
 	
-	public Match halfPrior(Match half, int size) {
-		int tam = size/2;
-		int contador = 0;
-		Match next = half;
-		Match retorno = null;
-		boolean ya = false;
-		while(!ya) {
-			if(contador == tam) {
-				retorno = next;
-				ya = true;
-			}
-			else {
-				if(next.getPrior() != null) {
-					next = next.getPrior();
-					contador++;
-				}
-			}
-		}
-		
-		return retorno;
-	}
 	
-//	search binary in list 
-	public Match search(String date) {
-//	TODO
-		boolean ya = false;
+	public ArrayList<Match> search(String date) {
 		Date datefind = null;
-		Match retorno = null;
-		int size = size();
-		int inicio = 0;
-		Match half  = halfNext(firstMatch, size);
+		ArrayList<Match> retorno = new ArrayList<>();
+		Match half  = firstMatch;
 		try {
 			SimpleDateFormat change = new SimpleDateFormat("dd/MM/yyyy");
 			datefind = change.parse(date);
@@ -100,21 +75,27 @@ public class ListMatch implements Serializable {
 			e.printStackTrace();
 		}
 		
-		while(!ya) {			
+		while(half != null) {			
 			if(datefind.equals(half.getTime())) {
-				retorno = half;
-				ya = true;
-			}
-			else if(datefind.compareTo(half.getTime())>0){
-				size = size/2;
-				half = halfPrior(half, size);
+				retorno.add(half);
+				half = half.getNext();
 			}
 			else {
-				size = size/2;
-				half = halfNext(half, size);
+					half = half.getNext();
 			}
 		}
 		return retorno;
+	}
+	
+	public String printFound(String date) {
+		ArrayList<Match> e = search(date);
+		String msj = null;
+		if(e.size()>0) {
+			for (int i = 0; i < e.size(); i++) {
+				msj = e.get(i).toString();
+			}
+		}
+		return msj;
 	}
 	
 	
