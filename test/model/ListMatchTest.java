@@ -64,8 +64,16 @@ class ListMatchTest {
 		Match actual = lm.halfNext(m, m.size());
 		assertEquals(40, actual.getPlayer1().getRankingUser());
 	}
-
-	
+	public Date parse(String date) {
+		Date datefind = null;
+		try {
+			SimpleDateFormat change = new SimpleDateFormat("dd/MM/yyyy");
+			datefind = change.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return datefind;
+	}
 	@Test
 	public void search() {
 		ListMatch lm = new ListMatch();
@@ -87,16 +95,7 @@ class ListMatchTest {
 		
 	}
 	
-	public Date parse(String date) {
-		Date datefind = null;
-		try {
-			SimpleDateFormat change = new SimpleDateFormat("dd/MM/yyyy");
-			datefind = change.parse(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return datefind;
-	}
+	
 	
 
 }
