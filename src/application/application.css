@@ -11,6 +11,20 @@
     -fx-background-position: center;
 }
 
+.wrapperTitlePlayer{
+	-fx-background-image: url("../../data/image/concertina.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 210px, 42px;
+}
+
+.wrapperScore{
+	-fx-background-image: url("../../data/image/estrellas.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 102px, 44px;
+}
+
 
 .button{
 	-fx-focus-color: transparent;
@@ -103,9 +117,21 @@
     -fx-text-fill: "#2E5111";
 }
 
+.btnBox{
+	-fx-background-image: url("../../data/image/box.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 50px, 50px;
+    -fx-text-fill: "#2E5111";
+}
+
 .label{
 	-fx-font-family: "Dimbo Regular";
 	  -fx-text-fill: #FFFFFF;
 	  -fx-font-size: 30px;
+}
+
+.namePlayer{
+	 -fx-font-size: 25px !important;
 }
 

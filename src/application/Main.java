@@ -17,6 +17,9 @@ public class Main extends Application {
 		Scene scene = new Scene(menuScreen.getRoot());
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		
+		Thread tOneMusic = new Thread(menuScreen,"threadMusic");
+		tOneMusic.start();
+		
 		stage.setScene(scene);
 		stage.setTitle("Geometrico");
 		stage.show();

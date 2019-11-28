@@ -128,4 +128,11 @@ public class Geometrico {
 		System.out.println("bien");
 		serializedMatch();
 	}
+
+	//-----------------------------------
+	//-----------------------------------
+	//TODO HACER MÉTODO PARA RETORNAR LEVEL DEL JUEGO
+	public int getLeveMatch() {
+		return 3;
+	}
 }

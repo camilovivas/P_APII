@@ -18,6 +18,7 @@ public class UserRegisterController extends Controller {
 		model = new Geometrico();
 	}
 	
+<<<<<<< HEAD
 	
 //	public void setLevel(int level) {
 //		model.setInitMatch(level);
@@ -43,4 +44,8 @@ public class UserRegisterController extends Controller {
 		model.setPlayer1(user1);
 		model.initMatch();
 	}
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/camilovivas/P_APII.git
 }
