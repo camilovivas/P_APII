@@ -96,4 +96,8 @@ public class User implements Serializable{
 		return size;
 	}
 	
+	public void addShapes(Shape sh) {
+//		TODO
+	}
+	
 }

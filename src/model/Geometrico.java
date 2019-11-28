@@ -19,10 +19,12 @@ public class Geometrico {
 	private User player1;
 	private User player2;
 	private int level;
+	private Match match;
 	
 	
 	public Geometrico() {
-		ReadSerializedUsers();
+		listUser = new ListUser();
+//		ReadSerializedUsers();
 	}
 //	get and set____________________
 	public void setPlayer1(User player1) {
@@ -33,7 +35,7 @@ public class Geometrico {
 		this.player2 = player2;
 	}
 	
-	public void setInitMatch(int level) {
+	public void setLevel(int level) {
 		System.out.println("R");
 		this.level = level;
 	}
@@ -141,6 +143,6 @@ public class Geometrico {
 	//-----------------------------------
 	//TODO HACER MÉTODO PARA RETORNAR LEVEL DEL JUEGO
 	public int getLeveMatch() {
-		return 3;
+		return this.level;
 	}
 }

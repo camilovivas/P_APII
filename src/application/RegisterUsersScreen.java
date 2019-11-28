@@ -51,8 +51,8 @@ public class RegisterUsersScreen extends Screen {
 		btnRegister.getStyleClass().add("btnYellow");
 		btnRegister.setTranslateY(30);
 		
-		labelPlayerOne = new Label("Juagdor 1");
-		labelPlayerTwo = new Label("Juagdor 2");
+		labelPlayerOne = new Label("Jugador 1");
+		labelPlayerTwo = new Label("Jugador 2");
 
 		namePlayerOne = new TextField();
 		namePlayerOne.setPrefWidth(250);

@@ -19,9 +19,9 @@ public class UserRegisterController extends Controller {
 	}
 	
 	
-//	public void setLevel(int level) {
-//		model.setInitMatch(level);
-//	}
+	public void setLevel(int level) {
+		model.setLevel(level);
+	}
 	
 	public void search1(String name) {
 		if(name == null) {

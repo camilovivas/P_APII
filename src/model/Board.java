@@ -20,6 +20,7 @@ public class Board implements Serializable{
 	public static int FILA_LEVEL_2 = 5;
 	public static int COLUMNA_LEVEL_3 = 6;
 	public static int FILA_LEVEL_3 = 6;
+	
 	private Box[][] box;
 	private int level;
 	
@@ -70,6 +71,10 @@ public class Board implements Serializable{
 	public void conquerBox(int i, int j, Shape shape) {
 		((AsignableBox) box[i][j]).setShape(shape);
 		 
+	}
+	
+	public void generateBoxRandom() {
+//		TODO
 	}
 	
 	

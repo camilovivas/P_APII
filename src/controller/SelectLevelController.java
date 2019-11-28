@@ -16,7 +16,7 @@ public class SelectLevelController extends Controller {
 	
 	
 	public void setLevel(int level) {
-		model.setInitMatch(level);
+		model.setLevel(level);
 	}
 
 }
