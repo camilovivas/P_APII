@@ -1,6 +1,4 @@
 package controller;
-import application.FilterScreen;
-import application.MenuScreen;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Geometrico;
@@ -12,18 +10,21 @@ public class FilterController extends Controller {
 	private Stage primaryStage;
 	private Scene scene;
 	private Geometrico model;
+	private String result;
 	
 	public FilterController(Stage primaryStage) {
 		super(primaryStage);
+		model = Geometrico.getSingletonInstance();
+		result = "";
 	}
 
 	public void setOption(String option, String text) {
 		this.option = option;
 		if(option.compareTo("Usuarios")==0) {
-			model.foundUser(text);
+			result += model.foundUser(text);
 		}
 		else {
-			model.searchMatch(text);
+			result += model.searchMatch(text);
 		}
 	}
 	
