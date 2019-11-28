@@ -3,6 +3,7 @@ package controller;
 import application.FilterScreen;
 import application.GameScreen;
 import application.MenuScreen;
+import application.RankingScreen;
 import application.RegisterUsersScreen;
 import application.SelectLevelScreen;
 import javafx.scene.Scene;
@@ -33,6 +34,10 @@ public abstract class Controller{
 		break;
 		
 		case "ranking":
+			RankingScreen rankingScreen = new RankingScreen(primaryStage);
+			scene = new Scene(rankingScreen.getRoot());
+		break;
+		case "search":
 			FilterScreen filterScreen = new FilterScreen(primaryStage);
 			scene = new Scene(filterScreen.getRoot());
 		break;

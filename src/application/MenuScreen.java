@@ -19,7 +19,7 @@ public class MenuScreen extends Screen implements Runnable{
 	
 	private VBox menuPane;
 	
-	private Button btnPlay,btnIns,btnRanking;
+	private Button btnPlay,btnIns,btnSearch,btnRanking;
 	private Image title;
 	private ImageView  wrapperTitle;
 	
@@ -27,14 +27,17 @@ public class MenuScreen extends Screen implements Runnable{
 		title = new Image("file:../../data/image/titulo.png");
 		wrapperTitle = new ImageView(title);
 		
-		
 		btnPlay = new Button("Jugar!");
 		btnPlay.setPrefSize(124,47);
 		btnPlay.getStyleClass().add("btnYellow");
 		btnPlay.setTranslateY(50);
-	
 		
-		btnRanking = new Button("Historia");
+		btnSearch = new Button("Buscar");
+		btnSearch.setPrefSize(124,47);
+		btnSearch.getStyleClass().add("btnYellow");
+		btnSearch.setTranslateY(50);
+		
+		btnRanking = new Button("Ranking");
 		btnRanking.setPrefSize(124,47);
 		btnRanking.getStyleClass().add("btnBlue");
 		btnRanking.setTranslateY(50);
@@ -50,9 +53,7 @@ public class MenuScreen extends Screen implements Runnable{
 		
 		menuController = new MenuController(stage);
 		
-		
 		draw();
-		
 	}
 	
 	private void draw() {
@@ -60,11 +61,13 @@ public class MenuScreen extends Screen implements Runnable{
 		goToGame();
 		goToInInstructions();
 		goToRanking();
+		goToSearch();
 	}
 	
 	private void drawBody() {
 		menuPane.getChildren().add(btnPlay);
 		menuPane.getChildren().add(btnRanking);
+		menuPane.getChildren().add(btnSearch);
 		menuPane.getChildren().add(btnIns);
 		menuPane.setAlignment(Pos.CENTER);
 		//---------------------------------
@@ -96,6 +99,12 @@ public class MenuScreen extends Screen implements Runnable{
 	public void goToRanking() {
 		btnRanking.setOnAction(e -> {
 			menuController.goScreens("ranking");
+		});
+	}
+	
+	public void goToSearch() {
+		btnSearch.setOnAction(e -> {
+			menuController.goScreens("search");
 		});
 	}
 
