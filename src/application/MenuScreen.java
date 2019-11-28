@@ -84,19 +84,19 @@ public class MenuScreen extends Screen{
 	
 	public void goToGame() {
 		btnPlay.setOnAction(e -> {
-			
+			menuController.goScreens("play");
 		});
 	}
 	
 	public void goToInInstructions() {
 		btnIns.setOnAction(e -> {
-
+			menuController.goScreens("instruction");
 		});
 	}
 	
 	public void goToRanking() {
 		btnRanking.setOnAction(e -> {
-			menuController.goScreenRanking();
+			menuController.goScreens("ranking");
 		});
 	}
 	

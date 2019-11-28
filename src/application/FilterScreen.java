@@ -124,7 +124,7 @@ public class FilterScreen extends Screen {
 	public void goToMenu() {
 		btnBack.setOnAction(e -> {
 			System.out.println("Entro");
-			filterController.goScreenMenu();
+			filterController.goScreens("menu");
 		});	
 	}
 

@@ -15,7 +15,7 @@
 .button{
 	-fx-focus-color: transparent;
 	-fx-font-family: "Dimbo Regular";
-    -fx-font-size: 20;
+    -fx-font-size: 20px;
     -fx-cursor: pointer;
    -fx-background-color: transparent;
    -fx-cursor: hand;
@@ -53,7 +53,15 @@
     -fx-background-image: url("../../data/image/menu.png");
 	-fx-background-repeat: no-repeat;
     -fx-background-position: center;
-   
+}
+
+
+
+.nivelPane{
+	fx-background-color:rgba(255.0,0.0,0.0,0.2);
+    -fx-background-image: url("../../data/image/nivel.png");
+	-fx-background-repeat: no-repeat;
+    -fx-background-position: center;
 }
 
 .btnYellow{
@@ -62,7 +70,6 @@
     -fx-background-position: center;
     -fx-background-size: 124.0px, 47.0px;
       -fx-text-fill: "#AB002C"; 
-    
 }
 
 
@@ -94,5 +101,11 @@
     -fx-background-position: center;
     -fx-background-size: 40px, 40px;
     -fx-text-fill: "#2E5111";
+}
+
+.label{
+	-fx-font-family: "Dimbo Regular";
+	  -fx-text-fill: #FFFFFF;
+	  -fx-font-size: 30px;
 }
 

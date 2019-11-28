@@ -7,19 +7,12 @@ import javafx.stage.Stage;
 
 public class FilterController extends Controller {
 
-	private MenuScreen menuScreen;
+
 	private Stage primaryStage;
+	private Scene scene;
 	
 	public FilterController(Stage primaryStage) {
-		this.primaryStage = primaryStage;
+		super(primaryStage);
 	}
 	
-	public void goScreenMenu() {
-		
-		menuScreen = new MenuScreen(primaryStage);
-		
-		Scene scene = new Scene(menuScreen.getRoot());
-		scene.getStylesheets().add(getClass().getResource("../application/application.css").toExternalForm());
-		primaryStage.setScene(scene);
-	}
 }

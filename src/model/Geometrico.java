@@ -74,4 +74,8 @@ public class Geometrico {
 			System.out.println("no se encontro el archivo");
 		}
 	}
+
+	public void setInitMatch(int level) {
+		System.out.println("Level" + " "+level);
+	}
 }
