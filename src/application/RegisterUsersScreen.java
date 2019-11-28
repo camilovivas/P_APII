@@ -54,7 +54,7 @@ public class RegisterUsersScreen extends Screen {
 		wrapperTitleH.setTranslateX(240);
 		
 		
-		btnRegister = new Button("Continaur");
+		btnRegister = new Button("Continuar");
 		btnRegister.setPrefSize(124,47);
 		btnRegister.getStyleClass().add("btnYellow");
 		btnRegister.setTranslateY(30);
@@ -75,6 +75,10 @@ public class RegisterUsersScreen extends Screen {
 		wrapperInputs.setAlignment(Pos.CENTER);
 		
 		userRegisterController = new UserRegisterController(stage);
+		btnRegister.setOnAction(e->{
+			userRegisterController.search1(namePlayerOne.getText());
+			userRegisterController.search2(namePlayeTwo.getText());
+		});
 		
 		drawHeader();
 		draw();

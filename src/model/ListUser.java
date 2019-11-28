@@ -1,6 +1,8 @@
 package model;
 
-public class ListUser {
+import java.io.Serializable;
+
+public class ListUser implements Serializable {
 	private User firstUser;
 	private User lastUser1;
 	
@@ -15,9 +17,7 @@ public class ListUser {
 	public User getFirstUser() {
 		return firstUser;
 	}
-
-
-
+	
 	public void setFirstUser(User firstUser) {
 		this.firstUser = firstUser;
 	}
@@ -34,6 +34,71 @@ public class ListUser {
 			 u.setNext(next);
 			 next.setPrior(u);
 		 }
+	}
+
+//	recursivo
+	public int size() {
+		int size = 0;
+		if(firstUser != null) {
+			size += (1+ firstUser.size());
+		}
+		return size;
+	}
+	
+//	search binary semi
+	public UserRegistered search(String name) {
+		organizeByName();
+		boolean ya = false;
+		UserRegistered retorno = null;
+		if(firstUser != null) {			
+			int size = size();
+			UserRegistered half  = halfNext((UserRegistered) firstUser, size);
+			while(!ya) {			
+				if(name.compareTo(half.getFirstName())==0) {
+					retorno = half;
+					ya = true;
+				}
+				else if(name.compareTo(half.getFirstName())<0){
+					if(half.getPrior()!= null) {
+						half =(UserRegistered) half.getPrior();					
+					}
+					else {
+						ya=true;
+					}
+				}
+				else {
+					if(half.getNext()!= null) {
+						
+						half = (UserRegistered) half.getNext();
+					}
+					else {
+						ya=true;
+					}
+				}
+			}
+		}
+		return retorno;
+	}
+	
+	public UserRegistered halfNext(UserRegistered half, int size) {
+		int tam = size/2;
+		int contador = 0;
+		UserRegistered next = half;
+		UserRegistered retorno = null;
+		boolean ya = false;
+		while(!ya) {
+			if(contador == tam) {
+				retorno = next;
+				ya = true;
+			}
+			else {
+				if(next.getNext() != null) {
+					next = (UserRegistered) next.getNext();
+					contador++;
+				}
+			}
+		}
+		return retorno;
 	}
 	
 	public void addUserAnonimos(UserAnonymous u) {

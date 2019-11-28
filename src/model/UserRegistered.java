@@ -8,13 +8,11 @@ package model;
 public class UserRegistered extends User {
 	
 	private String firstName;
-	private String lastName;
 	private Score historyScore;
 	
-	public UserRegistered(String firstName, String lastName ) {
+	public UserRegistered(String firstName) {
 		super();
 		this.firstName = firstName;
-		this.lastName = lastName;
 
 	}
 
@@ -24,14 +22,6 @@ public class UserRegistered extends User {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public Score getHistoryScore() {

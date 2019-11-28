@@ -87,5 +87,13 @@ public class User implements Serializable{
 			}
 		}
 	}
+
+	public int size() {
+		int size = 0;
+		if(next != null) {
+			size +=(1+ next.size());
+		}
+		return size;
+	}
 	
 }

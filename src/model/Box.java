@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
  */
 
-public abstract class Box {
+public abstract class Box implements Serializable{
 	private int posX;
 	private int posY;
 	

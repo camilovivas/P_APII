@@ -96,7 +96,7 @@ public class Match implements Serializable{
 		}
 	}
 	
-	
+//	recursivo
 	public int size() {
 		int size = 0;
 		if(next != null) {
@@ -118,9 +118,6 @@ public class Match implements Serializable{
 		
 	}
 	
-	public void calculateScoreByPlayer(User s) {
-		
-	}
 	
 	
 }

@@ -62,36 +62,13 @@ public class ListMatch implements Serializable {
 		return retorno;
 	}
 	
-	public Match halfPrior(Match half, int size) {
-		int tam = size/2;
-		int contador = 0;
-		Match next = half;
-		Match retorno = null;
-		boolean ya = false;
-		while(!ya) {
-			if(contador == tam) {
-				retorno = next;
-				ya = true;
-			}
-			else {
-				if(next.getPrior() != null) {
-					next = next.getPrior();
-					contador++;
-				}
-			}
-		}
-		
-		return retorno;
-	}
 	
-//	search binary in list 
+//	semi search binary in list 
 	public Match search(String date) {
-//	TODO
 		boolean ya = false;
 		Date datefind = null;
 		Match retorno = null;
 		int size = size();
-		int inicio = 0;
 		Match half  = halfNext(firstMatch, size);
 		try {
 			SimpleDateFormat change = new SimpleDateFormat("dd/MM/yyyy");
@@ -105,13 +82,22 @@ public class ListMatch implements Serializable {
 				retorno = half;
 				ya = true;
 			}
-			else if(datefind.compareTo(half.getTime())>0){
-				size = size/2;
-				half = halfPrior(half, size);
+			else if(datefind.compareTo(half.getTime())<0){
+				if(half.getPrior()!= null) {
+					half =half.getPrior();					
+				}
+				else {
+					ya=true;
+				}
 			}
 			else {
-				size = size/2;
-				half = halfNext(half, size);
+				if(half.getNext()!= null) {
+					
+					half = half.getNext();
+				}
+				else {
+					ya=true;
+				}
 			}
 		}
 		return retorno;
