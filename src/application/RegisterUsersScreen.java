@@ -46,12 +46,7 @@ public class RegisterUsersScreen extends Screen {
 		wrapperTitleH = new ImageView(title);
 		wrapperTitleH.setTranslateX(240);
 		
-<<<<<<< HEAD
-		
 		btnRegister = new Button("Continuar");
-=======
-		btnRegister = new Button("Continaur");
->>>>>>> branch 'master' of https://github.com/camilovivas/P_APII.git
 		btnRegister.setPrefSize(124,47);
 		btnRegister.getStyleClass().add("btnYellow");
 		btnRegister.setTranslateY(30);
