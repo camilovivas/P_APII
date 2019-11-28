@@ -65,6 +65,13 @@ public class User implements Serializable{
 	public void setRankingUser(int rankingUser) {
 		this.rankingUser = rankingUser;
 	}
+	public Shape getFirstShape() {
+		return firstShape;
+	}
+
+	public void setFirstShape(Shape firstShape) {
+		this.firstShape = firstShape;
+	}
 
 	public int calculateRanking() {
 		int ranking = 0;
@@ -97,7 +104,14 @@ public class User implements Serializable{
 	}
 	
 	public void addShapes(Shape sh) {
-//		TODO
+		
+		if(firstShape==null) {
+			setFirstShape(sh);
+		}else {
+			firstShape.shapeAdd(sh);
+		}
 	}
+
+
 	
 }
