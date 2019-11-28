@@ -9,7 +9,7 @@ class UserTest {
 	@Test
 	void calculateRanking() {
 		User s = new User();
-		Board b = new Board();
+		Board b = new Board(1);
 		s.getBoxes().add(b.getBox()[0][0]);
 		s.getBoxes().add(b.getBox()[1][1]);
 		s.getBoxes().add(b.getBox()[1][2]);

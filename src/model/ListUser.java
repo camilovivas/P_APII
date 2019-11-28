@@ -48,6 +48,7 @@ public class ListUser {
 		 }
 	}
 	
+//	ordenamiento insercion
 	public void organizeByName() {
 		if(firstUser != null){
 			UserRegistered u = (UserRegistered) firstUser;

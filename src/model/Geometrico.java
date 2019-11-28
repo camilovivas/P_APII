@@ -33,7 +33,7 @@ public class Geometrico {
 	
 	public void serializedMatch() {
 		try {
-			FileOutputStream file = new FileOutputStream("files/Hall.arc");
+			FileOutputStream file = new FileOutputStream("files/Match.arc");
 			ObjectOutputStream object = new ObjectOutputStream(file);
 			object.writeObject(listMatch);
 			object.close();
@@ -43,7 +43,7 @@ public class Geometrico {
 	}
 	public void serializedUser() {
 		try {
-			FileOutputStream file = new FileOutputStream("files/Hall.arc");
+			FileOutputStream file = new FileOutputStream("files/User.arc");
 			ObjectOutputStream object = new ObjectOutputStream(file);
 			object.writeObject(listUser);
 			object.close();
@@ -54,7 +54,7 @@ public class Geometrico {
 	
 	public void ReadSerializedMatch() {
 		try {
-			FileInputStream f = new FileInputStream(new File("files/Hall.arc"));
+			FileInputStream f = new FileInputStream(new File("files/Match.arc"));
 			ObjectInputStream object = new ObjectInputStream(f);
 			listMatch = (ListMatch) object.readObject();
 			object.close();
@@ -66,7 +66,7 @@ public class Geometrico {
 	public void ReadSerializedUsers() {
 		FileInputStream f;
 		try {
-			f = new FileInputStream(new File("files/Hall.arc"));
+			f = new FileInputStream(new File("files/User.arc"));
 			ObjectInputStream object = new ObjectInputStream(f);
 			listUser = (ListUser) object.readObject();
 			object.close();

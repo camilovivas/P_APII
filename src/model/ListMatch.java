@@ -1,5 +1,8 @@
 package model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -81,9 +84,9 @@ public class ListMatch implements Serializable {
 		return retorno;
 	}
 	
-	
-//	search binary in list
+//	search binary in list 
 	public Match search(String date) {
+//	TODO
 		boolean ya = false;
 		Date datefind = null;
 		Match retorno = null;
@@ -111,10 +114,10 @@ public class ListMatch implements Serializable {
 				half = halfNext(half, size);
 			}
 		}
-		
-		
 		return retorno;
 	}
+	
+	
 	
 	
 	

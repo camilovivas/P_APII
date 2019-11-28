@@ -10,7 +10,7 @@ class BoardTest {
 	@Test
 	public void createMatrizTest() {
 		String text = "";
-		Board b = new Board();
+		Board b = new Board(1);
 		for (int i = 0; i < b.getBox().length; i++) {
 			for (int j = 0; j < b.getBox()[0].length; j++) {
 				text += b.getBox()[i][j].getScore()+" ";
@@ -19,14 +19,10 @@ class BoardTest {
 				}
 			}
 		}
-		assertEquals("10 10 10 10 10 10 10 10 "+"\n"+
-					 "10 15 15 15 15 15 15 10 "+"\n"+
-				     "10 15 10 10 10 10 15 10 "+"\n"+
-				     "10 15 10 10 10 10 15 10 "+"\n"+
-				     "10 15 10 10 10 10 15 10 "+"\n"+
-				     "10 15 10 10 10 10 15 10 "+"\n"+
-				     "10 15 15 15 15 15 15 10 "+"\n"+
-				     "10 10 10 10 10 10 10 10 "+"\n", text);
+		assertEquals("10 10 10 10 "+"\n"+
+					 "10 15 15 10 "+"\n"+
+				     "10 15 15 10 "+"\n"+
+				     "10 10 10 10 "+"\n", text);
 	}
 
 }

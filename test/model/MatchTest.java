@@ -13,7 +13,7 @@ class MatchTest {
 		UserRegistered s2 = new UserRegistered("andres", "v");
 		Shape sh = new Shape();
 		sh.setScore(10);
-		Match m = new Match(s1, s2);
+		Match m = new Match(s1, s2,1);
 		m.conquerBox(0, 0, sh);
 		
 		assertEquals(20, s1.getRankingUser()); 
@@ -26,7 +26,7 @@ class MatchTest {
 		UserRegistered s2 = new UserRegistered("andres", "v");
 		Shape sh = new Shape();
 		sh.setScore(10);
-		Match m = new Match(s1, s2);
+		Match m = new Match(s1, s2,1);
 		m.conquerBox(0, 0, sh);
 		
 		assertEquals(20, s1.getRankingUser()); 
@@ -38,9 +38,9 @@ class MatchTest {
 		UserRegistered s2 = new UserRegistered("andres", "v");
 		UserRegistered im = new UserRegistered("funciona", "v");
 		im.setRankingUser(30);
-		Match m1 = new Match(s1, s2);
-		Match m2 = new Match(s1, s2);
-		Match m3 = new Match(im, s2);
+		Match m1 = new Match(s1, s2,1);
+		Match m2 = new Match(s1, s2,1);
+		Match m3 = new Match(im, s2,1);
 		m1.setNext(m2);
 		m2.setNext(m3);
 		m3.setPrior(m2);

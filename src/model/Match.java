@@ -20,9 +20,9 @@ public class Match implements Serializable{
 	private long dateTime;
 	private Date time;
 	
-	public Match(User player1, User player2) {
+	public Match(User player1, User player2,int level) {
 		time= new Date();
-		matchBoard = new Board();
+		matchBoard = new Board(level);
 		this.player1 = player1;
 		this.player2 = player2;
 		dateTime = time.getTime();

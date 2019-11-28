@@ -6,8 +6,12 @@ package model;
  */
 
 public class Score {
-	
 	private Score right;
 	private Score left;
-
+	private int score;
+	
+	public Score(int score) {
+		this.score = score;
+	}
+	
 }
