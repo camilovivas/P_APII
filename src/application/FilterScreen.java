@@ -15,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import model.ExceptionNoGameDate;
+import model.ExceptionPlayerNotFound;
 
 
 public class FilterScreen extends Screen {
@@ -125,7 +127,14 @@ public class FilterScreen extends Screen {
 	
 	public void search() {
 		btnSearch.setOnAction(e->{
-			filterController.setOption((String) listView.getValue(), inputSearch.getText());
+			try {
+				filterController.setOption((String) listView.getValue(), inputSearch.getText());
+			} catch (ExceptionPlayerNotFound e1) {
+				e1.printStackTrace();
+			} catch (ExceptionNoGameDate e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 		});
 	}

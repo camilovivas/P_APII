@@ -1,6 +1,8 @@
 package controller;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.ExceptionNoGameDate;
+import model.ExceptionPlayerNotFound;
 import model.Geometrico;
 
 
@@ -19,7 +21,7 @@ public class FilterController extends Controller {
 	}
 
 //	me trae los resultados pero no se donde ponerlo en la Screen
-	public void setOption(String option, String text) {
+	public void setOption(String option, String text) throws ExceptionPlayerNotFound, ExceptionNoGameDate {
 		this.option = option;
 		if(option.compareTo("Usuarios")==0) {
 			result += model.foundUser(text);
