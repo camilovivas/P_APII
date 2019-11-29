@@ -8,6 +8,7 @@ import exception.ExceptionPlayerNotFound;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -21,7 +22,7 @@ import javafx.stage.Stage;
 
 public class FilterScreen extends Screen {
 	private InstructionScreen isc;
-	private Pane wrapperMain;
+	private HBox wrapperMain;
 	private VBox header;
 	private HBox wrapperTitles,wrapperMenuSearch,sideATitles,sideAMenu;
 	private ComboBox  listView;
@@ -30,7 +31,7 @@ public class FilterScreen extends Screen {
 	private ImageView  wrapperTitleH,wrapperTitleHistory;
 	private TextField inputSearch;
 	private FilterController filterController;
-
+	private Label resultSearch;
 	
 	public FilterScreen(Stage stage) {
 		wrapperTitles = new HBox(50);
@@ -75,10 +76,13 @@ public class FilterScreen extends Screen {
 		btnSearch.getStyleClass().add("btnYellow");
 		btnSearch.setTranslateX(15);
 		//-------------------------------
-		wrapperMain = new Pane();
+		wrapperMain = new HBox();
 		//-------------------------------
 		filterController = new FilterController(stage);
 		//-------------------------------
+		wrapperMain.setAlignment(Pos.CENTER);
+		wrapperMain.setTranslateY(50);
+		resultSearch = new Label("");
 		draw();
 		
 	}
@@ -103,10 +107,13 @@ public class FilterScreen extends Screen {
 		sideATitles.getStyleClass().add("sideATitles");
 		wrapperMenuSearch.getChildren().add(sideAMenu);
 		wrapperMenuSearch.getChildren().add(btnSearch);
+		
+		wrapperMain.getChildren().add(resultSearch);
 	}
 	
 	public void drawHeader() {
 		root.getChildren().add(header);
+		root.getChildren().add(wrapperMain);
 	}
 	
 	private void drawMenu() {
@@ -129,6 +136,7 @@ public class FilterScreen extends Screen {
 		btnSearch.setOnAction(e->{
 			try {
 				filterController.setOption((String) listView.getValue(), inputSearch.getText());
+					resultSearch.setText(filterController.getResult());
 			} catch (ExceptionPlayerNotFound e1) {
 				e1.printStackTrace();
 			} catch (ExceptionNoGameDate e1) {

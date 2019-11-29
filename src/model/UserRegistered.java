@@ -65,7 +65,7 @@ public class UserRegistered extends User {
 	}
 	
 	public String toString() {
-		String msj = firstName+"su mejor puntaje"+bestScore();
+		String msj = firstName+"su mejor puntaje"+" "+bestScore();
 		return msj;
 		
 	}
