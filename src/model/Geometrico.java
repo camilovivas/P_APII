@@ -198,4 +198,8 @@ public class Geometrico {
 	public int getLeveMatch() {
 		return this.level;
 	}
+	
+	public String bestRanking() {
+		return treeRanking.inOrden();
+	}
 }

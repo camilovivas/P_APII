@@ -47,7 +47,12 @@ public class RankingBestUser implements Comparable<RankingBestUser>, Serializabl
 		if(left != null) {
 			msj += left.inOrden();
 		}
-		msj += " "+this.getPlayer().getRankingUser();
+		try {
+			msj += ((UserRegistered) this.getPlayer()).getFirstName()+"  ";
+		}catch(ClassCastException e){
+			msj += "Anonymous  ";
+		}
+		msj += this.getPlayer().getRankingUser()+"\n";
 		if(right != null) {
 			msj += right.inOrden();
 		}
@@ -71,19 +76,22 @@ public class RankingBestUser implements Comparable<RankingBestUser>, Serializabl
 		return menor;
 	}
 	public void addRankingBestUser(RankingBestUser added) {
-		if(compareTo(added) == -1) {
+		int compare = compareTo(added);
+		if(compare == -1) {
 			if(left == null) {
 				setLeft(added);
 			}else {
 				left.addRankingBestUser(added);
 			}
-		}else if(compareTo(added) == 1) {
+		}
+		if(compare == 1) {
 			if(right==null) {
 				setRight(added);
 			}else {
 				right.addRankingBestUser(added);
 			}
-		}else {
+		}
+		if(compare == 0){
 			if(left == null) {
 				setLeft(added);
 			}else {
