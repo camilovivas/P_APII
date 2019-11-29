@@ -21,10 +21,12 @@ public class Match implements Serializable{
 //	ATTRIBUTES
 	private String dateTime;
 	private Date time;
+	private int level;
 	
 	public Match(User player1, User player2,int level) {
 		time= new Date();
 		matchBoard = new Board(level);
+		this.level = level;
 		this.player1 = player1;
 		this.player2 = player2;
 		dateTime = time.getDate()+"/"+(time.getMonth()+1)+"/"+2019;
@@ -96,12 +98,14 @@ public class Match implements Serializable{
 		if(player1.isTurn() == true) {
 			player1.getBoxes().add(matchBoard.getBox()[i][j]);
 			player1.setRankingUser(player1.calculateRanking());
+			cases(player1, player1);
 			player1.setTurn(false);
 			player2.setTurn(true);
 		}
 		else {
 			player2.getBoxes().add(matchBoard.getBox()[i][j]);
-			((UserRegistered) player2).setRankingUser(player2.calculateRanking());
+			player2.setRankingUser(player2.calculateRanking());
+			cases(player1, player1);
 			player2.setTurn(false);
 			player1.setTurn(true);
 		}
@@ -127,6 +131,53 @@ public class Match implements Serializable{
 		}
 		return retorno;
 		
+	}
+	
+	public void cases(User s, User s2) {
+		int shapesFree1 = s.shapeFree();
+		int shapesFree2 = s2.shapeFree();
+		if(level == 1) {
+			if(shapesFree1 <= 2|| shapesFree2 <=2){
+				win(s,s2);
+			}
+		}
+		if(level == 2) {
+			if(shapesFree1 <= 3|| shapesFree2 <=3){
+				win(s,s2);
+			}
+		}
+		if(level == 3) {
+			if(shapesFree1 <= 4|| shapesFree2 <=4){
+				win(s,s2);
+			}
+		}
+	}
+	
+	public void win(User s, User s2) {
+		int boxFree = matchBoard.quantityFree();
+		int shapefreeS1 = s.quantityShapesFree();
+		int shapefreeS2 = s2.quantityShapesFree();
+		
+		int sum1 = boxFree+shapefreeS1;
+		int sum2 = boxFree+shapefreeS2;
+		if(sum1 > sum2) {
+			s.setWin(true);
+			try {
+			((UserRegistered)s).setwinner();
+			}
+			catch (ClassCastException e) {
+				
+			}
+		}
+		else {
+			s2.setWin(true);
+			try {
+				((UserRegistered)s2).setwinner();
+			}
+			catch (ClassCastException e) {
+				
+			}
+		}
 	}
 	
 	

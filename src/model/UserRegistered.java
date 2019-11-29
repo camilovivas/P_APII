@@ -32,9 +32,9 @@ public class UserRegistered extends User {
 		this.historyScore = historyScore;
 	}
 	
-	public void setwin() {
-		setWin(true);
+	public void setwinner() {
 		addScore(getRankingUser());
+		setRankingUser(0);
 	}
 	
 //		recursivo

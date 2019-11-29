@@ -121,6 +121,29 @@ public class User implements Serializable{
 			firstShape.shapeAdd(sh);
 		}
 	}
+	
+//	recursivo
+	public int quantityShapesFree() {
+		int retorno = 0;
+		if(firstShape != null) {
+			if(firstShape.isUsed()== false) {
+				retorno += firstShape.getScore();
+				retorno += firstShape.quantityFree();
+			}
+		}
+		return retorno;
+	}
+	
+//	recursivo
+	public int shapeFree() {
+		int retorno =0;
+		if(firstShape != null) {
+			if(firstShape.isUsed()== false) {
+				retorno+= (1+firstShape.shapeFree());
+			}
+		}
+		return retorno;
+	}
 
 
 	

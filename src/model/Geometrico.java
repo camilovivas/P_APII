@@ -26,8 +26,10 @@ public class Geometrico {
 	private Geometrico() {
 		listUser = new ListUser();
 		listMatch = new ListMatch();
+		treeRanking = new TreeRanking();
 		ReadSerializedUsers();
 		ReadSerializedMatch();
+		ReadSerializedRanking();
 	}
 	
 	public static Geometrico getSingletonInstance() {
@@ -71,6 +73,15 @@ public class Geometrico {
 		serializedMatch();
 	}
 	
+//	cada vez que se agregue una figura a la matriz verificar esto 
+	public void addRanking(User u) {
+		RankingBestUser add = new RankingBestUser(u);
+		if(u.isWin()) {
+			treeRanking.addRanking(add);
+			serializedRanking();
+		}
+	}
+	
 //	serializar ______________________________________________________________________________________
 	
 	public void serializedMatch() {
@@ -94,6 +105,17 @@ public class Geometrico {
 		}
 	}
 	
+	public void serializedRanking() {
+		try {
+			FileOutputStream file = new FileOutputStream("data/serializable_File/Ranking.arc");
+			ObjectOutputStream object = new ObjectOutputStream(file);
+			object.writeObject(treeRanking);
+			object.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void ReadSerializedMatch() {
 		try {
 			FileInputStream f = new FileInputStream(new File("data/serializable_File/Match.arc"));
@@ -111,6 +133,18 @@ public class Geometrico {
 			f = new FileInputStream(new File("data/serializable_File/User.arc"));
 			ObjectInputStream object = new ObjectInputStream(f);
 			listUser = (ListUser) object.readObject();
+			object.close();
+		} catch (IOException | ClassNotFoundException e) {
+			System.out.println("no se encontro el archivo");
+		}
+	}
+	
+	public void ReadSerializedRanking() {
+		FileInputStream f;
+		try {
+			f = new FileInputStream(new File("data/serializable_File/Ranking.arc"));
+			ObjectInputStream object = new ObjectInputStream(f);
+			treeRanking = (TreeRanking) object.readObject();
 			object.close();
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println("no se encontro el archivo");
@@ -156,7 +190,6 @@ public class Geometrico {
 		listMatch.addMatch(mt);
 		System.out.println("bien");
 		this.match = mt;
-		serializedMatch();
 	}
 
 	//-----------------------------------

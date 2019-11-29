@@ -36,21 +36,21 @@ public class GameController extends Controller {
 			ret +=((UserRegistered) model.getMatch().getPlayer1()).getFirstName();
 			
 		}
-		catch (Exception e) {
+		catch (ClassCastException e) {
 			ret += "UserAnonymous";
 		}
 		return ret;
 	}
 	
 	public String namePlayer2() {
-		String ret = null;
-//		try {			
+		String ret = "";
+		try {			
 			ret = ((UserRegistered) model.getMatch().getPlayer2()).getFirstName();
 			System.out.println(ret);
-//		}
-//		catch (Exception e) {
-//			ret += "UserAnonymous";
-//		}
+		}
+		catch (ClassCastException e) {
+			ret += "UserAnonymous";
+		}
 		return ret;
 	}
 	

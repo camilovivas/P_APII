@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
  */
 
-public class RankingBestUser implements Comparable<RankingBestUser>{
+public class RankingBestUser implements Comparable<RankingBestUser>, Serializable{
 	
 	private RankingBestUser right;
 	private RankingBestUser left;
