@@ -6,7 +6,6 @@ import model.Geometrico;
 
 public class FilterController extends Controller {
 
-	private String option;
 	private Stage primaryStage;
 	private Scene scene;
 	private Geometrico model;
@@ -19,7 +18,6 @@ public class FilterController extends Controller {
 	}
 
 	public void setOption(String option, String text) {
-		this.option = option;
 		if(option.compareTo("Usuarios")==0) {
 			result += model.foundUser(text);
 		}
@@ -27,7 +25,4 @@ public class FilterController extends Controller {
 			result += model.searchMatch(text);
 		}
 	}
-	
-	
-	
 }
