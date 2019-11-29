@@ -40,11 +40,16 @@ public class UserRegistered extends User {
 //		recursivo
 	public int bestScore() {
 		String msj = "";
+		int best = 0;
 		if(historyScore != null) {
+			msj+= historyScore.getScore()+",";
 			msj += historyScore.inOrden();
 		}
-		String[] s = msj.split(",");
-		int best = Integer.parseInt(s[s.length]);
+		if(msj != "") {
+			String[] s = msj.split(",");
+			best = Integer.parseInt(s[s.length-1]);
+			
+		}
 		return best;
 	}
 	

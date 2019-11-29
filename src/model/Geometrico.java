@@ -126,7 +126,7 @@ public class Geometrico {
 			listMatch = (ListMatch) object.readObject();
 			object.close();
 		} catch (IOException | ClassNotFoundException e) {
-			System.out.println("no se encontro el archivo");
+			System.out.println("no se encontro el archivo de partidas");
 		}
 	}
 	
@@ -138,7 +138,7 @@ public class Geometrico {
 			listUser = (ListUser) object.readObject();
 			object.close();
 		} catch (IOException | ClassNotFoundException e) {
-			System.out.println("no se encontro el archivo");
+			System.out.println("no se encontro el archivo de usuarios");
 		}
 	}
 	
@@ -150,7 +150,7 @@ public class Geometrico {
 			treeRanking = (TreeRanking) object.readObject();
 			object.close();
 		} catch (IOException | ClassNotFoundException e) {
-			System.out.println("no se encontro el archivo");
+			System.out.println("no se encontro el archivo de ranking");
 		}
 	}
 	
@@ -160,6 +160,7 @@ public class Geometrico {
 	public UserRegistered searchUser(String name) {
 		UserRegistered s1 = listUser.search(name);
 		if(s1 == null) {
+			System.out.println("no encontre");
 			s1 = new UserRegistered(name);
 			addUserRegistered(s1);
 		}
