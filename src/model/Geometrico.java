@@ -24,8 +24,8 @@ public class Geometrico {
 	
 	
 	private Geometrico() {
-//		listUser = new ListUser();
-//		listMatch = new ListMatch();
+		listUser = new ListUser();
+		listMatch = new ListMatch();
 		ReadSerializedUsers();
 		ReadSerializedMatch();
 	}

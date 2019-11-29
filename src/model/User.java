@@ -12,18 +12,20 @@ public class User implements Serializable{
 	private User prior;
 	private User next;
 	
+	
 //	RELACIONES
 	private Shape firstShape; 
 	private ArrayList<Box> boxes;
 	
 //	ATTRIBUTES
 	private boolean turn;
+	private boolean win;
 	private int rankingUser;
 	
 	public User() {
 		boxes = new ArrayList<>();
 		turn = true;
-
+		win = false;
 	}
 
 	public User getPrior() {
@@ -71,6 +73,14 @@ public class User implements Serializable{
 
 	public void setFirstShape(Shape firstShape) {
 		this.firstShape = firstShape;
+	}
+	
+	public boolean isWin() {
+		return win;
+	}
+
+	public void setWin(boolean win) {
+		this.win = win;
 	}
 
 	public int calculateRanking() {
