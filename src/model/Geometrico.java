@@ -114,7 +114,7 @@ public class Geometrico {
 	
 //	busqueda________________________________________________________________________________________
 	
-	//si no lo encuentra lo agrega
+	//SI NO SE ENCUENTRA. SE AGREGA.
 	public UserRegistered searchUser(String name) {
 		UserRegistered s1 = listUser.search(name);
 		if(s1 == null) {
@@ -124,12 +124,12 @@ public class Geometrico {
 		return s1;
 	}
 	
-//	EXEPTION: SI NO SE ENCONTRO ES POR QUE NO EXISTE
-	public String foundUser(String name) {
+//	EXEPTION: SI NO SE ENCONTRÓ ES PORQUE NO EXISTE
+	public String foundUser(String name) throws ExceptionPlayerNotFound {
 		UserRegistered s1 = listUser.search(name);
 		String msj = "";
 		if(s1 == null) {
-//			TODO
+			throw new ExceptionPlayerNotFound("EL JUGADOR NO EXISTE. POR FAVOR VERIFIQUE EL NOMBRE");
 		}
 		else {
 			msj += s1.toString();
@@ -137,11 +137,11 @@ public class Geometrico {
 		return msj;
 	}
 	
-	//EXCEPTION: SI ES NULL ES POR QUE NO EXISTE UNA PARTIDA EN ESA FECHA, OTRA: ESCRIBIO MAL LA FECHA
-	public String searchMatch(String date) {
+	//EXCEPTION: SI ES NULL ES POR QUE NO EXISTE UNA PARTIDA EN ESA FECHA
+	public String searchMatch(String date) throws ExceptionNoGameDate{
 		String retorno = listMatch.printFound(date);
 		if(retorno == null) {
-			//TODO
+			throw new ExceptionNoGameDate("NO EXISTE UNA PARTIDA EN ESTA FECHA. POR FAVOR VERIFIQUE LA FECHA INGRESADA.");
 		}
 		return retorno;
 	}

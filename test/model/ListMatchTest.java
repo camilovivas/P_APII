@@ -76,7 +76,7 @@ class ListMatchTest {
 		return datefind;
 	}
 	@Test
-	public void search() {
+	public void search() throws ExceptionDateError {
 		ListMatch lm = new ListMatch();
 		UserRegistered s1 = new UserRegistered("c");
 		UserRegistered s2 = new UserRegistered("a");
