@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+import exception.ExceptionNoGameDate;
+import exception.ExceptionPlayerNotFound;
+
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
@@ -192,9 +195,6 @@ public class Geometrico {
 		this.match = mt;
 	}
 
-	//-----------------------------------
-	//-----------------------------------
-	//TODO HACER MÉTODO PARA RETORNAR LEVEL DEL JUEGO
 	public int getLeveMatch() {
 		return this.level;
 	}

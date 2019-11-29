@@ -1,8 +1,8 @@
 package controller;
+import exception.ExceptionNoGameDate;
+import exception.ExceptionPlayerNotFound;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.ExceptionNoGameDate;
-import model.ExceptionPlayerNotFound;
 import model.Geometrico;
 
 
