@@ -35,6 +35,7 @@ public class ArrayBox {
 				button.setPrefHeight(sizeSquare);
 				button.setTranslateX(posX);
 				button.setTranslateY(posY);
+				button.setId(i+","+j);
 				matrixButtons[i][j] = button;
 			}
 		}

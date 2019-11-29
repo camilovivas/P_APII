@@ -49,8 +49,13 @@ public class Geometrico {
 		System.out.println("R");
 		this.level = level;
 	}
-//	agregar _________________________________________________________________________________________
 	
+	public Match getMatch() {
+		return match;
+	}
+	
+//	agregar _________________________________________________________________________________________
+
 	public void addUserRegistered(UserRegistered u) {
 		listUser.addUserRegistered(u);
 		serializedUser();

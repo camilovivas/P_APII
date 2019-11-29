@@ -40,8 +40,10 @@ public class GameScreen extends Screen{
 		
 		this.sizeArrayBox = gameController.getSizeArrayBox();
 		
-		dataPlayerOne = new PlayerDataGame("pipegarcial");
-		dataPlayerTwo = new PlayerDataGame("orco");
+		dataPlayerOne = new PlayerDataGame(gameController.namePlayer1());
+		dataPlayerOne.setScore(gameController.namePlayer1());
+		dataPlayerTwo = new PlayerDataGame(gameController.namePlayer2());
+		dataPlayerOne.setScore(gameController.namePlayer2());
 		arrayBox = new ArrayBox(sizeArrayBox,sizeArrayBox);
 		draw(); 
 		
