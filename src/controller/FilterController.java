@@ -1,4 +1,6 @@
 package controller;
+import exception.ExceptionNoGameDate;
+import exception.ExceptionPlayerNotFound;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import model.Geometrico;
@@ -6,6 +8,7 @@ import model.Geometrico;
 
 public class FilterController extends Controller {
 
+	private String option;
 	private Stage primaryStage;
 	private Scene scene;
 	private Geometrico model;
@@ -17,12 +20,25 @@ public class FilterController extends Controller {
 		result = "";
 	}
 
-	public void setOption(String option, String text) {
+
+//	me trae los resultados pero no se donde ponerlo en la Screen
+	public void setOption(String option, String text) throws ExceptionPlayerNotFound, ExceptionNoGameDate {
+		this.option = option;
 		if(option.compareTo("Usuarios")==0) {
 			result += model.foundUser(text);
 		}
 		else {
 			result += model.searchMatch(text);
 		}
+	}
+
+
+	public String getResult() {
+		return result;
+	}
+
+
+	public void setResult(String result) {
+		this.result = result;
 	}
 }

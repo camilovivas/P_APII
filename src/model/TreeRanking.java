@@ -1,11 +1,13 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
  */
 
-public class TreeRanking {
+public class TreeRanking implements Serializable{
 	
 	private RankingBestUser rootRanking;
 	
@@ -27,10 +29,12 @@ public class TreeRanking {
 	}
 	
 	public void addRanking(RankingBestUser add) {
-		if(rootRanking==null) {
-			setRootRanking(add);
-		}else {
-			rootRanking.addRankingBestUser(add);
+		if(clasification(add.getPlayer())== true) {			
+			if(rootRanking==null) {
+				setRootRanking(add);
+			}else {
+				rootRanking.addRankingBestUser(add);
+			}
 		}
 	}
 	

@@ -24,7 +24,7 @@ public class UserRegisterController extends Controller {
 	}
 	
 	public void search1(String name) {
-		if(name == null) {
+		if(name.isEmpty()) {
 			user1 = new UserAnonymous();
 		}
 		else {
@@ -34,7 +34,8 @@ public class UserRegisterController extends Controller {
 	}
 	
 	public void search2(String name) {
-		if(name == null) {
+		if(name.isEmpty()) {
+			System.out.println(name+"OK");
 			user2 = new UserAnonymous();
 		}
 		else {

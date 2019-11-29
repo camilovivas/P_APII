@@ -12,18 +12,20 @@ public class User implements Serializable{
 	private User prior;
 	private User next;
 	
+	
 //	RELACIONES
 	private Shape firstShape; 
 	private ArrayList<Box> boxes;
 	
 //	ATTRIBUTES
 	private boolean turn;
+	private boolean win;
 	private int rankingUser;
 	
 	public User() {
 		boxes = new ArrayList<>();
 		turn = true;
-
+		win = false;
 	}
 
 	public User getPrior() {
@@ -72,6 +74,14 @@ public class User implements Serializable{
 	public void setFirstShape(Shape firstShape) {
 		this.firstShape = firstShape;
 	}
+	
+	public boolean isWin() {
+		return win;
+	}
+
+	public void setWin(boolean win) {
+		this.win = win;
+	}
 
 	public int calculateRanking() {
 		int ranking = 0;
@@ -110,6 +120,29 @@ public class User implements Serializable{
 		}else {
 			firstShape.shapeAdd(sh);
 		}
+	}
+	
+//	recursivo
+	public int quantityShapesFree() {
+		int retorno = 0;
+		if(firstShape != null) {
+			if(firstShape.isUsed()== false) {
+				retorno += firstShape.getScore();
+				retorno += firstShape.quantityFree();
+			}
+		}
+		return retorno;
+	}
+	
+//	recursivo
+	public int shapeFree() {
+		int retorno =0;
+		if(firstShape != null) {
+			if(firstShape.isUsed()== false) {
+				retorno+= (1+firstShape.shapeFree());
+			}
+		}
+		return retorno;
 	}
 
 

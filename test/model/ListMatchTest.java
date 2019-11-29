@@ -9,6 +9,8 @@ import java.util.Date;
 
 import org.junit.jupiter.api.Test;
 
+import exception.ExceptionDateError;
+
 class ListMatchTest {
 
 	@Test
@@ -65,29 +67,6 @@ class ListMatchTest {
 		Match actual = lm.halfNext(m, m.size());
 		assertEquals(40, actual.getPlayer1().getRankingUser());
 	}
-
-	
-	@Test
-	public void search() {
-		ListMatch lm = new ListMatch();
-		UserRegistered s1 = new UserRegistered("c");
-		UserRegistered s2 = new UserRegistered("a");
-		UserRegistered im = new UserRegistered("a");
-		im.setRankingUser(40);
-		Match m = new Match(s1, s2,1);
-//		m.setTime(parse("28/11/2019"));
-		Match m1 = new Match(s1, s2,1);
-//		m1.setTime(parse("28/11/2019"));
-		Match m2 = new Match(im, s2,1);
-//		m2.setTime(parse("28/11/2019"));
-		lm.addMatch(m);
-		lm.addMatch(m1);
-		lm.addMatch(m2);
-		ArrayList<Match> actual = lm.search("28/11/2019");
-		assertEquals(3, actual.size());
-		
-	}
-	
 	public Date parse(String date) {
 		Date datefind = null;
 		try {
@@ -98,6 +77,28 @@ class ListMatchTest {
 		}
 		return datefind;
 	}
+	@Test
+	public void search() throws ExceptionDateError {
+		ListMatch lm = new ListMatch();
+		UserRegistered s1 = new UserRegistered("c");
+		UserRegistered s2 = new UserRegistered("a");
+		UserRegistered im = new UserRegistered("a");
+		im.setRankingUser(40);
+		Match m = new Match(s1, s2,1);
+		m.setTime(parse("28/11/2019"));
+		Match m1 = new Match(s1, s2,1);
+		m1.setTime(parse("28/11/2019"));
+		Match m2 = new Match(im, s2,1);
+		m2.setTime(parse("28/11/2019"));
+		lm.addMatch(m);
+		lm.addMatch(m1);
+		lm.addMatch(m2);
+		ArrayList<Match> actual = lm.search("28/11/2019");
+		assertEquals(3, actual.size());
+		
+	}
+	
+	
 	
 
 }

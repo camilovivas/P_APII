@@ -3,6 +3,8 @@ package application;
 
 
 import controller.FilterController;
+import exception.ExceptionNoGameDate;
+import exception.ExceptionPlayerNotFound;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -125,7 +127,14 @@ public class FilterScreen extends Screen {
 	
 	public void search() {
 		btnSearch.setOnAction(e->{
-			filterController.setOption((String) listView.getValue(), inputSearch.getText());
+			try {
+				filterController.setOption((String) listView.getValue(), inputSearch.getText());
+			} catch (ExceptionPlayerNotFound e1) {
+				e1.printStackTrace();
+			} catch (ExceptionNoGameDate e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			
 		});
 	}

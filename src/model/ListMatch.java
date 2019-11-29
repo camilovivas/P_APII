@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
+import exception.ExceptionDateError;
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
@@ -64,7 +66,7 @@ public class ListMatch implements Serializable {
 	}
 	
 	
-	public ArrayList<Match> search(String date) {
+	public ArrayList<Match> search(String date) throws ExceptionDateError {
 		Date datefind = null;
 		ArrayList<Match> retorno = new ArrayList<>();
 		Match half  = firstMatch;
@@ -73,6 +75,7 @@ public class ListMatch implements Serializable {
 			datefind = change.parse(date);
 		} catch (ParseException e) {
 			e.printStackTrace();
+			throw new ExceptionDateError("NO EXISTE JUEGO EN ESTA FECHA. POR FAVOR VERIFIQUE LA FECHA INGRESADA.");
 		}
 		
 		while(half != null) {			
@@ -88,13 +91,19 @@ public class ListMatch implements Serializable {
 	}
 	
 	public String printFound(String date) {
-		ArrayList<Match> e = search(date);
+		ArrayList<Match> e;
 		String msj = null;
-		if(e.size()>0) {
-			for (int i = 0; i < e.size(); i++) {
-				msj = e.get(i).toString();
+		try {
+			e = search(date);
+			if(e.size()>0) {
+				for (int i = 0; i < e.size(); i++) {
+					msj = e.get(i).toString();
+				}
 			}
+		} catch (ExceptionDateError e1) {
+			System.out.println("POR FAVOR DIGITE BIEN EL FORMATO:" +"DD/MM/YYYY");;
 		}
+		
 		return msj;
 	}
 	

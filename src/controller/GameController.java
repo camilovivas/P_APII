@@ -1,7 +1,12 @@
 package controller;
 
+import org.hamcrest.core.IsInstanceOf;
+
+import com.sun.org.apache.bcel.internal.generic.INSTANCEOF;
+
 import javafx.stage.Stage;
 import model.Geometrico;
+import model.UserRegistered;
 
 public class GameController extends Controller {
 
@@ -23,6 +28,38 @@ public class GameController extends Controller {
 		default:
 			return 4;
 		}
+	}
+	
+	public String namePlayer1() {
+		String ret = "";
+		try {			
+			ret +=((UserRegistered) model.getMatch().getPlayer1()).getFirstName();
+			
+		}
+		catch (ClassCastException e) {
+			ret += "UserAnonymous";
+		}
+		return ret;
+	}
+	
+	public String namePlayer2() {
+		String ret = "";
+		try {			
+			ret = ((UserRegistered) model.getMatch().getPlayer2()).getFirstName();
+			System.out.println(ret);
+		}
+		catch (ClassCastException e) {
+			ret += "UserAnonymous";
+		}
+		return ret;
+	}
+	
+	public int scoreplayer1() {
+		return model.getMatch().getPlayer1().getRankingUser();
+	}
+
+	public int scoreplayer2() {
+		return model.getMatch().getPlayer2().getRankingUser();
 	}
 
 }

@@ -13,9 +13,9 @@ public class UserRegistered extends User {
 	public UserRegistered(String firstName) {
 		super();
 		this.firstName = firstName;
-
+		
 	}
-
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -32,15 +32,36 @@ public class UserRegistered extends User {
 		this.historyScore = historyScore;
 	}
 	
+	public void setwinner() {
+		addScore(getRankingUser());
+		setRankingUser(0);
+	}
+	
 //		recursivo
 	public int bestScore() {
 		String msj = "";
+		int best = 0;
 		if(historyScore != null) {
+			msj+= historyScore.getScore()+",";
 			msj += historyScore.inOrden();
 		}
-		String[] s = msj.split(",");
-		int best = Integer.parseInt(s[s.length]);
+		if(msj != "") {
+			String[] s = msj.split(",");
+			best = Integer.parseInt(s[s.length-1]);
+			
+		}
 		return best;
+	}
+	
+//	recursivo
+	public void addScore(int score) {
+		Score s = new Score(score);
+		if(historyScore == null) {
+			historyScore = s;
+		}
+		else {
+			historyScore.add(s);
+		}
 	}
 	
 	public String toString() {

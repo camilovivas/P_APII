@@ -8,6 +8,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Serializable;
 
+import javax.swing.text.StyledEditorKit.ForegroundAction;
+
 /**
  * @author Jhon Stiven Arboleda - Camilo Vivas - Felipe Garcia
  *
@@ -71,6 +73,18 @@ public class Board implements Serializable{
 	public void conquerBox(int i, int j, Shape shape) {
 		((AsignableBox) box[i][j]).setShape(shape);
 		 
+	}
+	
+	public int quantityFree() {
+		int retorno = 0;
+		for (int i = 0; i < box.length; i++) {
+			for (int j = 0; j < box[0].length; j++) {
+				if(((AsignableBox) box[i][j]).isConquered()== false) {
+					retorno += ((AsignableBox) box[i][j]).getScore();
+				}
+			}
+		}
+		return retorno;
 	}
 	
 	public void generateBoxRandom() {
